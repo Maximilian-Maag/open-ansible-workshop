@@ -22,6 +22,25 @@ Huntsman soll sich damit beschäftigen bestehende Infrastruktur in einem Ansible
 Rabbits sind dafür verantwortlich möglichst viele Workloads zu deployend, damit diese mit Ansible verwaltet werden können. Die Aufgabe der Rabbits ist es IT Infrastruktur schneller zu deployen, als diese von Huntsman organisiert und gemanged werden können. Rabbits konzentrieren sich während der Übung darauf repitive Aufgaben auf einzelnen Hosts zu automatisieren.
 
 ## Setup
+Für beide Gruppen gilt folgendes Setup:
+Es muss ein SSH keypair erstellt werden.
+ - Ein Keypair wird auf der lokalen Maschine erstellt.
+ - Nur der Public Key wird auf andere Maschinen kopiert, um ssh zugriff zu ermöglichen.
 
+Alle Teilnehmer erhalten einen API Token und ein Testnotebook.
+In der Testumgebung, Linode, wird ein Domaincontroller angelegt.
+Jede Maschine, die von einem Rabbit deployed wird muss mit einem A und einem AAAA Record auf die deployte Maschine zeigen. Folgendes Namenskonzept ist dabei zu beachten:
 
+```
+rabbitname-servernumber.simple-test.org
+```
 
+### Rabbit setup
+Rabbits müssen in der lage sein Infrastruktur zu deployen.
+Für das Deployment sind Terraformskripte zu verwenden.
+Das OS Management auf der jeweiligen Maschine erfolgt mittels Ansible.
+Als Master Node kann das eigene Notebook verwendet werden.
+Für jede beschriebene Challenge ist das Deployment der passenden Infrastruktur mittels Terraform vor zunehmen und die Aufgabe mittels eines Ansibleskripts zu lösen. Auf jeder Deployten VM muss der Huntsmann zugriff erhalten, um diese in sein Inventory aufnehmen zu können.
+
+### Huntsman setup
+Huntsmann müssen MINDESTENS einen Master Node als VM deployen. Hierauf wird der Ansible Master Node installiert. Diese Maschine erzeugt ein Keypair. Der Public Key dieses Keypairs muss an den jeweiligen Rabbit übergegen werden. Zusätlich zum Keypair auf dem Master Node muss ein lokales Keypair erzeugt werden, um den Master Node mittels SSH zu verwalten.
