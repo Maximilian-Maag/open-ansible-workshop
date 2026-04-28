@@ -1,0 +1,57 @@
+\documentclass{article}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Rabbit Challenge 3: Backups, Migration, Testysteme} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    Backups und Desaster Recovery sind im Notfall unverzichtbar, werden aber eher nachlässig angelegt.
+    In dieser Challenge geht es darum, ein Backup einer Nextcloud Installation zu erstellen und dieses Backup auf einem anderen Server wiederherzustellen.
+
+    \section{Aufgaben}
+    Ziel der Übung ist das Erstellen eines Backups und das Wiederhestellen auf einer anderen VM.
+
+    \subsection{Aufgabe 1}
+    Deployen Sie eine Instanz Ihres Nextcloud Playbooks in der Region US-eeast1.
+
+    \subsection{Aufgabe 2}
+    Die Geschäftsleitung teilt Ihnen mit, dass die Datenbank Ihrer Anwendung regelmäßig Entwicklern zu Testzwecken bereit gestellt werden muss.
+    Schreiben Sie ein Playbook, dass ein Backup der Datenbank erstellt und diesen in ein S3 Bucket ablegt, wo das Entwickler Team es verwenden kann.
+
+    \subsection{Aufgabe 3}
+    Führen Sie ein vollständiges Backup der Nextcloud durch.
+    Das blose Klonen der VM ist zu teuer. Sie müssen die Nextcloud, Alle Daten der Applikation und deren Einstellungen speichern ohne die VM zu klonen.
+    Entwickeln Sie ein Playbook für diesen Use Case.
+
+    \subsection{Aufgabe 4}
+    Die Nextcloud muss aufgrund von GDPR Vorgaben aus der Region US-east1 in die Region EU-west1 migriert werden.
+    Erstellen Sie ein Playbook, dass die Nextcloud in der Region EU-west1 wiederherstellt.
+    Darüber hinaus muss die Nextcloud unter der selben URL erreichbar bleiben.
+    Daten und Einstellungen dürfen nicht verloren gehen.
+
+    \subsection{Aufgabe 5}
+    Die Anforderungen an die Nextcloud sind gestiegen. Die Nutzerbasis hat sich durch den Zukauf einer neuen Tochtergesellschaft verdoppelt.
+    Eine einzelne VM ist den Anforderungen nicht mehr gewachsen.
+    Zwei mögliche Lösungen liegen auf dem Tisch:
+    \begin{itemize}
+        \item Die Nextcloud wird auf zwei VMs repliziert. Ein Load Balancer verteilt die Anfragen auf beide VMs.
+        \item Die Nextcloud wird in einem Kubernetes Cluster betrieben, um die Skalierung zu erleichtern.
+    \end{itemize}
+    Setzen Sie eines der beiden Szenarien um.
+
+    \subsection{Aufgabe 6}
+    Das Entwickler Team möchte regelmäßig Testinstanzen der Nextcloud bereitgestellt bekommen.
+    Erstellen Sie ein Playbook, dass eine Testinstanz der Nextcloud bereitstellt.
+    Das blose Klonen der VM ist nicht ausreichend. Die Testinstanz muss unter der der URL test.nextcloud.example.com erreichbar sein und 
+    die Datenbank muss mit einem Backup der Produktionsinstanz gefüllt werden.
+    Außerdem müssen alle Benutzer und Einstellungen der Produktionsinstanz in der Testinstanz vorhanden sein.
+    Die Testinstanz soll bei der Ausführung einer CI Pipeline deployed werden.
+    Innerhalb der Pipeline soll nach dem deployen der Testinstanz eine suit mit E2E tests sicherstellen,
+    dass Änderungen am firmen eigenen Nextcloud Plugin die Funktionalität der Nextcloud nicht beeinträchtigen.
+    Nach dem Ausführen der Tests soll die Testinstanz automatisch wieder gelöscht werden.
+
+\end{document}
