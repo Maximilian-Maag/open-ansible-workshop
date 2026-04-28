@@ -1,6 +1,4 @@
 # open-ansible-workshop
-A challenge based workshop to learn ansible. English version below.
-
 Ein Challenge basierter workshop, um den Umgang mit Ansible zu lernen.
 Dieser Workshop sollte in einer Gruppe von ca. 4 - 6 Personen abgehalten werden. Größere Gruppen sind zwar möglich machen die Betreuung einzelner Teilnehmer schwieriger. Es wird empfohlen mehrere Kleingruppen zu bilden, um Einzelpersonen das erreichen der Lernziele des Workshops zu erleichtern.
 
