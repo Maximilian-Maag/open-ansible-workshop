@@ -1,0 +1,49 @@
+\documentclass{article}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Rabbit Challenge 2: Installiere, konfiguriere und verwende es} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    Playbooks werden häufig dafür verwendet Software zu installieren und zu konfigurieren.
+
+    \section{Aufgaben}
+    In dieser Challenge geht es darum, ein Ansible Playbook zu erstellen, dass eine Anwendung installiert.
+    Es ist wichtig zu betonen, dass keine Installationsschritte händisch ausgeführt werden dürfen.
+
+    \subsection{Aufgabe 1}
+    Deployen Sie eine VM. Legen Sie einen DNS-Eintrag für die VM an, wie er in der Datei README.md beschrieben ist.
+
+    \subsection{Aufgabe 2}
+    Stellen Sie sicher das Ihr SSH Public Key hinterlegt ist.
+
+    \subsection{Aufgabe 3}
+    Installieren Sie eine PostgreSQL Datenbank auf der VM.
+    Richten sie einen Benutzer auf der DB ein. Erstellen Sie die DB nextcloud und
+    geben Sie alle Rechte auf die DB an den Benutzer.
+
+    \subsection{Aufgabe 4}
+    Installieren Sie PHP und die benötigten Module für Nextcloud.
+
+    \subsection{Aufgabe 5}
+    Legen Sie eine Konfigurationsdatei für Apache an.
+    Am Port 80 soll später die Nextcloud erreichbar sein.
+
+    \subsection{Aufgabe 6}
+    Beziehen Sie ein HTTPS Zertifikat von Let's Encrypt und richten Sie es für die Nextcloud Installation ein.
+    Stellen Sie sicher, dass HTTP Anfragen automatisch auf HTTPS umgeleitet werden.
+
+    \subsection{Aufgabe 7}
+    Installieren Sie nun Nextcloud selbst. Es muss nativ auf der Maschine installiert werden.
+    Das Nutzen von Docker oder ähnlichen Technologien ist nicht erlaubt. Als Webserver kann Apache oder Nginx verwendet werden.
+
+    \subsection{Aufgabe 8}
+    Ändern Sie Ihr Playbook so, dass es eine Nextcloud replizierbar installieren kann.
+    Führen Sie es anschließend auf mindestens 20 Servern aus. Jeder Server muss einen eigenen DNS Eintrag besitzen.
+    Deployen Sie Ihre Server in mindestens 6 verschiedene Regionen. Zum Beispiel: US-east1, US-west1, EU-west1, EU-west2, ASIA-east1, ASIA-east2.
+
+\end{document}
