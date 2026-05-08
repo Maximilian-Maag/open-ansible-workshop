@@ -1,0 +1,90 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    backgroundcolor=\color{gray!10}
+}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Rabbit Challenge 1: User Management} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    In dieser Challenge geht es um die Verwaltung von Benutzern auf einem Linux System mithilfe von Ansible. Ziel ist es, typische Administrationsaufgaben zu automatisieren.
+
+    \section{Aufgaben}
+    
+    \subsection{Aufgabe 1}
+    Erstellen Sie ein Ansible-Playbook, das 5 Benutzer aus einer Variablendatei anlegt. Jeder Benutzer soll ein eigenes Home-Verzeichnis und eine Standard-Shell (/bin/bash) erhalten.
+    
+    \textbf{Beispiel Playbook:}
+    
+    \begin{lstlisting}[language=yaml]
+- name: Benutzer erstellen
+  hosts: all
+  become: true
+
+  vars_files:
+    - users.yml
+
+  tasks:
+    - name: Erstelle Benutzer
+      ansible.builtin.user:
+        name: "{{ item.name }}"
+        shell: /bin/bash
+        create_home: yes
+      loop: "{{ users }}"
+    \end{lstlisting}
+
+    \textbf{Beispiel Variablendatei (users.yml):}
+    
+    \begin{lstlisting}[language=yaml]
+users:
+  - name: user1
+  - name: user2
+  - name: user3
+  - name: user4
+  - name: user5
+    \end{lstlisting}
+
+    \subsection{Aufgabe 2}
+    Setzen Sie eine Passwortablaufrichtlinie für alle Benutzer (z.B. 90 Tage Gültigkeit, 7 Tage Warnung).
+
+    \subsection{Aufgabe 3}
+    Fügen Sie Benutzer automatisch bestimmten Gruppen zu (z.B. developers, admins).
+
+    \subsection{Aufgabe 4}
+    Konfigurieren Sie sudo-Rechte so, dass nur die Gruppe „admins“ Zugriff erhält.
+
+    \subsection{Aufgabe 5}
+    Sperren Sie Benutzerkonten, die sich seit 30 Tagen nicht angemeldet haben.
+
+    \subsection{Aufgabe 6}
+    Löschen Sie einen Benutzer inklusive Home-Verzeichnis vollständig.
+
+    \subsection{Aufgabe 7}
+    Hinterlegen Sie SSH Public Keys für mehrere Benutzer.
+
+    \subsection{Aufgabe 8}
+    Erstellen Sie einen Report aller vorhandenen Benutzer (UID, Gruppen, Shell).
+
+    \subsection{Aufgabe 9}
+    Stellen Sie sicher, dass alle Benutzer /bin/bash als Standard-Shell verwenden.
+
+    \subsection{Aufgabe 10}
+    Legen Sie Benutzer mit einem Ablaufdatum an (z.B. für temporäre Accounts).
+
+    \subsection{Aufgabe 11}
+    Deaktivieren Sie den Root-Login über SSH und erlauben Sie nur Key-basierte Authentifizierung.
+
+\end{document}

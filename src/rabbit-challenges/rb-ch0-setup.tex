@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Rabbit Challenge 0: Das Einrichten der Entwicklungsumgebung ist Teil des Projekts } \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    Die Challenge richtet sich an die Rabbit Fraktion. Aufgabe ist das Einrichten einer lokalen IDE.
+    Sie müssen in der Lage sein VMs zu deployen.
+    \\ \\
+    Die Konfiguration der Elemente erfolgt dann über Ansible.
+
+    \section{Aufgaben}
+    Am Ende dieser Challenge sollten Sie ein funktionierendes Setup besitzen, um die folgenden Challenges zu meistern.
+
+    \subsection{Aufgabe 1}
+    Erzeugen Sie ein SSH Schlüsselpaar.
+
+    \subsection{Aufgabe 2}
+    Implementieren Sie ein Terraform Modul, dass Sie immer wieder verwenden können um schnell und einfach eine VM zu deployen.
+    Ihre VM muss folgende Eigenscahften besitzen:
+    \begin{itemize}
+        \item Ubuntu 22.04
+        \item 2 vCPUs
+        \item 4 GB RAM
+        \item 20 GB Festplatte
+        \item Port 22 offen
+        \item Ihr SSH Public Key im authorized_keys File
+        \item SSH Key Ihres Huntsman Konkurenten im authorized_keys File
+    \end{itemize}
+
+    \subsection{Aufgabe 3}
+    Erstellen SIe ein Ansible Playbook, dass die VM mit einem Webserver ausstattet und diesen startet.
+
+    \şubsection{Aufgabe 4}
+    Erstellen Sie ein weiteres Ansible Playbook. Das Playbook legt eine Datei mit dem Namen: rabbit-was-here.txt in /var/www/rabbit an.
+    Notieren Sie in dieser Datei Ihren Namen um für dieses Deployment auf dem Leaderboard einen Punkt zu erhalten.
+    
+    \subsection{Aufgabe 5}
+    Richten Sie Ihr Notebook so ein, dass Sie ein Ansible Playbook auf einer VM ausführen können.
+    Sie dürfen davon ausgehen, dass auf der VM Ihr SSH Public Key im authorized_keys File liegt.
+
+\end{document}

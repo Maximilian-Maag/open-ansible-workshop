@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Rabbit Challenge 5: Onboarding und Offboarding} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    Ein neuer Kollege beginnt in Ihrem Team.
+    Es ist viel zu tun und die Zeit für die Einarbeitung daher leider sehr kurz.
+    Der neue Kollege muss ein Setup erhalten, welches Ihn in die Lage versetzt Infrastrutkur 
+    mit Terraform und Ansible zu deployen.
+
+    \section{Aufgaben}
+    Ziel dieser Übung ist es Ihr eigenes Setup reproduzierbar zu machen.
+    Das soll dabei helfen schneller neue Kollegen onboarden zu können. \\ \\
+    Dem neuen Mitarbeiter ist ein Notebook zur Verfügung zu stellen. Es sind alle notwndigen Anwendungen zu installieren und 
+    zu konfigurieren.
+
+    \subsection{Aufgabe 1}
+    Erstellen Sie eine Dokumentation, welche die Schritte beschreibt, um das Notebook für die Arbeit mit Terraform und Ansible vorzubereiten.
+    Diese Dokumentation soll so detailliert sein, dass ein neuer Mitarbeiter ohne Vorkenntnisse in der Lage ist, das Notebook eigenständig einzurichten.
+    
+    \subsection{Aufgabe 2}
+    Implementieren Sie das Setup als bash Script.
+
+    \subsection{Aufgabe 3}
+    In Ihrer Abteilung beginnen 10 neue Mitarbeiter. 
+    Erstellen Sie ein Ansible Playbook, welches das Setup auf den Notebooks der neuen Mitarbeiter installiert und konfiguriert.
+
+    \subsection{Aufgabe 4}
+    Die neuen Kollegen arbeiten nun schon seit einem Jahr in Ihrem Team.
+    Das Setup hat sich inzwischen etwas verändert, das neue Setup muss auf alle Notebooks der neuen Kollegen gebracht werden.
+    Erstellen Sie ein Ansible Playbook, welches das neue Setup auf den Notebooks der neuen Kollegen installiert und konfiguriert.
+    Überlegen Sie, wie Sie fortlaufende Änderungen am Setup in Zukunft einfacher und schneller auf die Notebooks der Kollegen bringen können.
+
+    \subsection{Aufgabe 5}
+    Ein Jumphost ist für die Arbeit mit Terraform und Ansible notwendig.
+    Diese Änderung wurde nach einem Hackerangriff durch den IT-Sicherheitsbeauftragten angeordnet.
+    Deployen Sie einen Jumphost. Mitarbeiter müssen mit einem signierten Public Key über den Jumphost Linux Maschinen in der Cloud erreichen können.
+
+    \subsection{Aufgabe 6}
+    Ein Mitarbeiter verlässt das Unternehmen. Alle Zugänge zu Cloud Ressourcen müssen entfernt werden.
+    Erstellen Sie ein Ansible Playbook, welches die Zugänge des Mitarbeiters zu Cloud Ressourcen entfernt.
+    Die Zugänge der anderen Mitarbeiter müssen dabei unberührt bleiben.
+
+\end{document}
