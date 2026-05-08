@@ -1,0 +1,91 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    backgroundcolor=\color{gray!10}
+}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Huntsman Challenge 1: Inventarverwaltung und Hostentdeckung} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    In dieser Challenge geht es um die Verwaltung von Infrastruktur durch ein gut organisiertes Ansible Inventory.
+    Sie werden lernen, wie man eine große Anzahl von Servern strukturiert erfasst und verwaltet.
+    Ihr Ziel ist es, alle von Ihrem Rabbit-Konkurrenten deployten Server zu dokumentieren und zu organisieren.
+
+    \section{Aufgaben}
+
+    \subsection{Aufgabe 1}
+    Ihr Rabbit-Konkurrent hat begonnen, Server zu deployen. Erhalten Sie von ihm eine Liste aller deployten Server mit ihren IP-Adressen und Hostnamen.
+    \\ \\
+    \textbf{Hinweis:} Die Server folgen dem Namenskonzept: \texttt{rabbitname-servernumber.simple-test.org}
+
+    \subsection{Aufgabe 2}
+    Erstellen Sie ein strukturiertes Ansible Inventory in YAML Format, das folgende Informationen enthält:
+    \begin{itemize}
+        \item Alle Hosts mit Hostnamen und IP-Adressen
+        \item Gruppierung nach Region (z.B. US-east1, EU-west1, ASIA-east1)
+        \item Gruppierung nach Funktionalität (z.B. webserver, database, cache)
+        \item Gruppierung nach Betriebssystem Version
+    \end{itemize}
+
+    \textbf{Beispiel Inventarstruktur:}
+    \begin{lstlisting}[language=yaml]
+all:
+  children:
+    region_us_east:
+      hosts:
+        rabbit-web01.simple-test.org:
+          ansible_host: 192.0.2.1
+          function: webserver
+    region_eu_west:
+      hosts:
+        rabbit-web02.simple-test.org:
+          ansible_host: 192.0.2.2
+          function: webserver
+    \end{lstlisting}
+
+    \subsection{Aufgabe 3}
+    Implementieren Sie ein Ansible Playbook, das alle verwalteten Hosts auf Erreichbarkeit überprüft.
+    Das Playbook soll sich bei jedem Host verbinden und grundlegende Informationen wie OS, Kernel Version und verfügbare Ressourcen erfassen.
+
+    \subsection{Aufgabe 4}
+    Erstellen Sie ein dynamisches Inventory Script (oder verwenden Sie ein vorhandenes Ansible Plugin),
+    das die Server automatisch aus der Linode API abruft.
+    Dies ermöglicht es Ihnen, automatisch neue vom Rabbit deployten Server zu entdecken.
+
+    \subsection{Aufgabe 5}
+    Entwickeln Sie ein Namenskonzept für verwaltete Server, das folgende Aspekte berücksichtigt:
+    \begin{itemize}
+        \item Region oder Standort
+        \item Funktionalität oder Service (z.B. web, db, cache)
+        \item Instanznummer
+        \item Umgebung (production, staging, development)
+    \end{itemize}
+    
+    Dokumentieren Sie dieses Konzept und erstellen Sie ein Playbook, das Host-Metadaten basierend auf dem Namen automatisch generiert.
+
+    \subsection{Aufgabe 6}
+    Erstellen Sie eine Dokumentation Ihres Inventars in Markdown Format.
+    Diese Dokumentation soll einem neuen Admin ermöglichen, schnell die Struktur und den Aufbau der Infrastruktur zu verstehen.
+    \\ \\
+    Die Dokumentation sollte enthalten:
+    \begin{itemize}
+        \item Übersicht aller Hostgruppen
+        \item Erklärung des Namenskonzeptes
+        \item Beispiele für häufig verwendete Ansible Commands
+        \item Troubleshooting Guide
+    \end{itemize}
+
+\end{document}

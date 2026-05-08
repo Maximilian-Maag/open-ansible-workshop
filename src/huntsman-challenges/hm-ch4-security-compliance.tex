@@ -1,0 +1,121 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    backgroundcolor=\color{gray!10}
+}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Huntsman Challenge 4: Sicherheit und Compliance Management} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    Diese Challenge befasst sich mit der Sicherung und Compliance der verwalteten Infrastruktur.
+    Sie werden Sicherheitsrichtlinien durchsetzen, die Infrastruktur überwachen und sicherstellen, dass alle Systeme den Compliance-Anforderungen entsprechen.
+
+    \section{Aufgaben}
+
+    \subsection{Aufgabe 1}
+    Erstellen Sie ein Sicherheits-Hardening Playbook, das auf alle verwalteten Server angewandt wird.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item SSH Key Based Authentication erzwingen (Passwort Authentifizierung deaktivieren)
+        \item Firewall Regeln konfigurieren (nur notwendige Ports öffnen)
+        \item fail2ban installieren und konfigurieren
+        \item sudo Zugriff auf Basis von Gruppen regeln
+        \item Unwichtige Services deaktivieren
+        \item SELinux oder AppArmor aktivieren
+    \end{itemize}
+
+    \subsection{Aufgabe 2}
+    Implementieren Sie ein User Access Management Playbook.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item Autorisierte Benutzer auf den Systemen verwalten
+        \item SSH Public Keys zentral verwalten
+        \item sudo Konfigurationen durchsetzen
+        \item Inaktive Accounts deaktivieren
+        \item Audit Logs für alle Zugriffe generieren
+    \end{itemize}
+
+    \subsection{Aufgabe 3}
+    Erstellen Sie ein Security Scanning und Vulnerability Assessment Playbook.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item Regelmäßig Sicherheits-Scans durchführen (z.B. mit Nessus, OpenVAS)
+        \item Package Vulnerabilities überprüfen
+        \item Firewall Regeln auf Offenheiten prüfen
+        \item SSL/TLS Konfigurationen validieren
+        \item Befunde in einem zentralen System sammeln und melden
+    \end{itemize}
+
+    \subsection{Aufgabe 4}
+    Implementieren Sie Compliance Checking Playbooks für verschiedene Standards:
+    \begin{itemize}
+        \item CIS Benchmarks
+        \item GDPR Anforderungen (Datenschutz)
+        \item PCI DSS (für Payment Systems)
+        \item Custom Company Policies
+    \end{itemize}
+
+    \subsection{Aufgabe 5}
+    Erstellen Sie ein Playbook zur Patch Management und Updates.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item Sicherheits-Updates automatisch installieren
+        \item Critical Patches sofort einspielen
+        \item Regelmäßige OS Updates nach Testlauf durchführen
+        \item System nach Updates neu starten (mit Wartungsfenster)
+        \item Compatibility mit laufenden Services prüfen
+    \end{itemize}
+
+    \subsection{Aufgabe 6}
+    Implementieren Sie ein Logging und Monitoring Playbook für Security Events.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item Centralized Log Collection einrichten (z.B. ELK Stack, Splunk)
+        \item Failed Login Attempts loggen und monitoren
+        \item Privilege Escalation Events tracken
+        \item Datei-Änderungen auf kritischen Systemen monitoren
+        \item Real-time Alerts für verdächtige Aktivitäten generieren
+    \end{itemize}
+
+    \subsection{Aufgabe 7}
+    Erstellen Sie ein Incident Response Playbook.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item Verdächtige Server isolieren können
+        \item Forensische Daten sammeln
+        \item Logs für Incident Investigation aufbewahren
+        \item Automatische Notification an Security Team
+        \item Rollback Prozeduren für kompromittierte Systeme
+    \end{itemize}
+
+    \subsection{Aufgabe 8}
+    Dokumentieren Sie Ihre Sicherheitspolicies und Compliance Anforderungen.
+    \\ \\
+    Die Dokumentation sollte enthalten:
+    \begin{itemize}
+        \item Sicherheitsrichtlinien für alle Server
+        \item Compliance Anforderungen und deren Umsetzung
+        \item Security Incident Response Prozess
+        \item Regelmäßige Security Audit Schedule
+    \end{itemize}
+
+\end{document}

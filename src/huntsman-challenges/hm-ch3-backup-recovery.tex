@@ -1,0 +1,107 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    backgroundcolor=\color{gray!10}
+}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Huntsman Challenge 3: Zentrales Backup- und Disaster Recovery Management} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    Diese Challenge behandelt die zentrale Verwaltung von Backups und Disaster Recovery Prozessen.
+    Sie werden ein robustes Backup System aufbauen, das alle vom Rabbit deployten Server schützt.
+    Ziel ist es, im Notfall die Infrastruktur schnell wiederherstellen zu können.
+
+    \section{Aufgaben}
+
+    \subsection{Aufgabe 1}
+    Der Rabbit hat Backup Playbooks erstellt, die regelmäßig Datenbanken und Applikationsdaten in S3 Buckets ablegen.
+    Erstellen Sie ein zentrales Inventory all dieser Backups.
+    \\ \\
+    Ihr Playbook sollte:
+    \begin{itemize}
+        \item Alle S3 Buckets aufzählen und indexieren
+        \item Backup Metadaten erfassen (Datum, Größe, Integrität)
+        \item Alte und verwaiste Backups identifizieren
+        \item Backup Status in einer Datenbank speichern
+    \end{itemize}
+
+    \subsection{Aufgabe 2}
+    Erstellen Sie ein Playbook zur Überprüfung der Backup-Integrität.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item Checksums von Backup Files überprüfen
+        \item Backup Archives auf Beschädigungen prüfen
+        \item Stichprobenartig Backups testen (Test Restore auf temporärer VM)
+        \item Bei Problemen Alerts generieren
+    \end{itemize}
+
+    \subsection{Aufgabe 3}
+    Entwerfen Sie ein Backup Retention Policy Playbook für Ihre gesamte Infrastruktur.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item Täglich Backups für 7 Tage speichern
+        \item Wöchentliche Backups für 12 Wochen speichern
+        \item Monatliche Backups für 12 Monate speichern
+        \item Alte Backups automatisch löschen
+        \item Replicas in mehreren Regionen halten
+    \end{itemize}
+
+    \subsection{Aufgabe 4}
+    Erstellen Sie ein Disaster Recovery Testplaybook.
+    \\ \\
+    Dieses Playbook sollte:
+    \begin{itemize}
+        \item Regelmäßig (z.B. monatlich) einen Test Restore durchführen
+        \item Eine Test VM mit den Backup Daten starten
+        \item Die Funktionalität der wiederhergestellten Services verifizieren
+        \item Ein Bericht über den DR Test Status erstellen
+    \end{itemize}
+
+    \subsection{Aufgabe 5}
+    Implementieren Sie ein automated Recovery Playbook für verschiedene Fehlerszenarien:
+    \begin{itemize}
+        \item Service Crashes - Service automatisch neustarten
+        \item Datenbank Corruption - Automatische Wiederherstellung aus letztem bekannten Good State
+        \item Disk Full - Alte Log Files löschen und Space freigeben
+        \item Security Breach - System isolieren und aus Backup restore
+    \end{itemize}
+
+    \subsection{Aufgabe 6}
+    Erstellen Sie ein zentrales Backup Monitoring Dashboard.
+    \\ \\
+    Das Dashboard sollte zeigen:
+    \begin{itemize}
+        \item Status aller Backups (Erfolg/Fehler)
+        \item Letzte Backup Zeit für jeden Host
+        \item Backup Größen und Speicherkosten
+        \item Recovery Point Objective (RPO) für jeden Server
+        \item Time to Recover (RTO) basierend auf Testläufen
+    \end{itemize}
+
+    \subsection{Aufgabe 7}
+    Dokumentieren Sie Ihren Backup- und Recovery Prozess.
+    \\ \\
+    Die Dokumentation sollte enthalten:
+    \begin{itemize}
+        \item Backup Architektur und Topologie
+        \item Recovery Procedures für verschiedene Szenarien
+        \item Schritt-für-Schritt Wiederherstellungsanleitung
+        \item Kontakt- und Eskalationsprozeduren
+    \end{itemize}
+
+\end{document}

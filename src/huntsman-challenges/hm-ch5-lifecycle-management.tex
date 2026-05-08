@@ -1,0 +1,139 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    backgroundcolor=\color{gray!10}
+}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Huntsman Challenge 5: Infrastructure Lifecycle Management} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    Diese Challenge behandelt den gesamten Lebenszyklus von Infrastruktur - von der Bereitstellung bis zur Außerbetriebnahme.
+    Sie werden lernen, wie man Infrastruktur-Änderungen systematisch verwaltet, dokumentiert und automatisiert.
+
+    \section{Aufgaben}
+
+    \subsection{Aufgabe 1}
+    Erstellen Sie ein Server Onboarding Playbook für neue vom Rabbit deployten Server.
+    \\ \\
+    Das Playbook sollte automatisch:
+    \begin{itemize}
+        \item Den Server zum Inventory hinzufügen
+        \item Basis-Konfiguration durchführen
+        \item Monitoring Agent installieren
+        \item Zugriff für Huntsman Team konfigurieren
+        \item Initiale Compliance Checks durchführen
+        \item Dokumentation aktualisieren
+    \end{itemize}
+
+    \subsection{Aufgabe 2}
+    Implementieren Sie ein Change Management Playbook.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item Alle Konfigurationsänderungen in einer Change Management DB registrieren
+        \item Vor kritischen Änderungen ein Backup durchführen
+        \item Abhängigkeiten zwischen Services prüfen
+        \item Automatische Rollback Punkte erstellen
+        \item Change Approval Workflow implementieren (z.B. über externe APIs)
+        \item Alle Änderungen auditieren und loggen
+    \end{itemize}
+
+    \subsection{Aufgabe 3}
+    Erstellen Sie ein Configuration Management Database (CMDB) Playbook.
+    \\ \\
+    Das System sollte folgende Daten verwalten:
+    \begin{itemize}
+        \item Alle verwalteten Hosts und ihre Eigenschaften
+        \item Installierte Software und Versionen
+        \item Konfigurationsabhängigkeiten
+        \item Service Dependencies (z.B. Web Server braucht Datenbank)
+        \item Historical Data über Konfigurationsänderungen
+    \end{itemize}
+
+    \subsection{Aufgabe 4}
+    Implementieren Sie ein Server Decommissioning Playbook.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item Abhängigkeiten zu diesem Server identifizieren
+        \item Workloads auf andere Server migrieren
+        \item Finale Backups erstellen
+        \item Server aus dem Inventory entfernen
+        \item Daten sicher löschen (wegen GDPR/Compliance)
+        \item Dokumentation aktualisieren
+        \item Infrastructure as Code (Terraform) aktualisieren
+    \end{itemize}
+
+    \subsection{Aufgabe 5}
+    Erstellen Sie ein Infrastructure as Code (IaC) Synchronisations Playbook.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item Ansible Inventory mit Terraform State synchronisieren
+        \item Drift Detection durchführen (Ist der aktuelle Zustand wie dokumentiert?)
+        \item Automatisch erkannte neue Server zum Inventory hinzufügen
+        \item Gelöschte Server aus dem Inventory entfernen
+        \item Regelmäßig Reports über Drift generieren
+    \end{itemize}
+
+    \subsection{Aufgabe 6}
+    Implementieren Sie ein Service Migration Playbook.
+    \\ \\
+    Das Playbook sollte Szenarien unterstützen wie:
+    \begin{itemize}
+        \item Server upgrades ohne Ausfallzeit (Blue-Green Deployment)
+        \item Regionale Migrationen (z.B. US zu EU)
+        \item Applikations-Updates mit Zero Downtime
+        \item Rollback Prozeduren
+    \end{itemize}
+
+    \subsection{Aufgabe 7}
+    Erstellen Sie ein Capacity Planning Playbook.
+    \\ \\
+    Das Playbook sollte:
+    \begin{itemize}
+        \item Historische Ressourcennutzung analysieren
+        \item Trends vorhersagen
+        \item Warnungen bei Kapazitätsproblemen generieren
+        \item Empfehlungen für Server-Upgrades oder Neubeschaffung geben
+        \item Costs basierend auf Ressourcennutzung tracken
+    \end{itemize}
+
+    \subsection{Aufgabe 8}
+    Dokumentieren Sie Ihren gesamten Infrastructure Lifecycle und erstellen Sie Standard Operating Procedures (SOPs).
+    \\ \\
+    Die Dokumentation sollte enthalten:
+    \begin{itemize}
+        \item Server Onboarding Prozess (Step-by-Step)
+        \item Change Management Procedure
+        \item Decommissioning Prozess
+        \item Service Migration Procedure
+        \item Escalation Contacts und Zeiten
+        \item Häufige Probleme und deren Lösungen
+    \end{itemize}
+
+    \subsection{Aufgabe 9}
+    Erstellen Sie automatisierte Tests und Validierungen für Ihre Playbooks.
+    \\ \\
+    Verwenden Sie Test-Tools wie:
+    \begin{itemize}
+        \item Molecule für Ansible Role Testing
+        \item Terratest für Terraform Testing
+        \item Compliance Testing Frameworks
+        \item Integration Tests für komplexe Workflows
+    \end{itemize}
+
+\end{document}

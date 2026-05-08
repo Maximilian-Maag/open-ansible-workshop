@@ -1,0 +1,102 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    backgroundcolor=\color{gray!10}
+}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Huntsman Challenge 2: Konfigurationsmanagement in großem Maßstab} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    Diese Challenge befasst sich mit der zentralen Verwaltung von Konfigurationen auf einer großen Anzahl von Servern.
+    Ihr Ziel ist es, eine konsistente und wartbare Konfiguration aller verwalteten Server sicherzustellen.
+    Sie werden lernen, wie man Konfigurationsänderungen skaliert durchführt und dabei die Sicherheit und Stabilität gewährleistet.
+
+    \section{Aufgaben}
+
+    \subsection{Aufgabe 1}
+    Der Rabbit hat 20+ Nextcloud Server in verschiedenen Regionen deployt.
+    Sie müssen diese Server in Ihrem Inventory organisieren und über Gruppen verwalten können.
+    \\ \\
+    Erstellen Sie Hostgruppen nach Kriterien wie Region, Umgebung und Service-Typ.
+
+    \subsection{Aufgabe 2}
+    Erstellen Sie ein Basis-Konfigurationsplaybook, das auf alle neu hinzugekommenen Server angewandt wird.
+    Dieses Playbook sollte folgende Aufgaben durchführen:
+    \begin{itemize}
+        \item System Packages aktualisieren
+        \item Zeitzone setzen
+        \item NTP konfigurieren
+        \item Basis-Sicherheitsrichtlinien anwenden (Firewall, SSH Konfiguration)
+        \item Monitoring Agent installieren
+        \item Logging konfigurieren
+    \end{itemize}
+
+    \subsection{Aufgabe 3}
+    Erstellen Sie regionspeziefische Playbooks für die 20+ Nextcloud Server.
+    \\ \\
+    Nutzen Sie das Playbook um sicherzustellen, dass:
+    \begin{itemize}
+        \item Alle Server die gleiche PHP Version haben
+        \item PostgreSQL auf der gleichen Version läuft
+        \item Apache/Nginx Konfigurationen konsistent sind
+        \item SSL Zertifikate aktuell sind
+        \item Alle Server auf dem gleichen Patchlevel sind
+    \end{itemize}
+
+    \subsection{Aufgabe 4}
+    Implementieren Sie ein Verifizierungs-Playbook, das nach jeder Konfigurationsänderung durchgeführt wird.
+    Das Playbook soll überprüfen:
+    \begin{itemize}
+        \item Connectivity zu allen Hosts
+        \item Verfügbare Ressourcen (Disk Space, Memory, CPU)
+        \item Laufende Services und deren Status
+        \item Korrektheit der Konfigurationsdateien
+        \item Sicherheitsbaselines (offene Ports, User Accounts, SSH Keys)
+    \end{itemize}
+
+    \subsection{Aufgabe 5}
+    Erstellen Sie ein Playbook zur koordinierten Anwendung von Sicherheits-Patches.
+    \\ \\
+    Besonderheiten:
+    \begin{itemize}
+        \item Patches sollten Gruppen-weise durchgeführt werden (z.B. zuerst Staging, dann Production)
+        \item Es sollte Health Checks vor und nach jedem Update geben
+        \item Automatische Rollback Mechanismen sollten vorhanden sein
+        \item Services sollten mit minimaler Ausfallzeit neu gestartet werden
+    \end{itemize}
+
+    \subsection{Aufgabe 6}
+    Erstellen Sie ein Performance Monitoring Playbook, das regelmäßig folgende Metriken erfasst:
+    \begin{itemize}
+        \item CPU, Memory, Disk Auslastung
+        \item Netzwerk Traffic
+        \item Service Response Times
+        \item Fehlerquoten in Log Files
+    \end{itemize}
+    
+    Die erfassten Daten sollen in eine zentrale Monitoring Lösung exportiert werden (z.B. Prometheus, ELK Stack).
+
+    \subsection{Aufgabe 7}
+    Dokumentieren Sie alle Ihre Playbooks und erstellen Sie einen Runbook mit häufigen Aufgaben.
+    Der Runbook sollte enthalten:
+    \begin{itemize}
+        \item Wie man neue Server zum Inventory hinzufügt
+        \item Wie man ein Config Update durchführt
+        \item Wie man Probleme diagnostiziert
+        \item Wie man Server aus der Verwaltung entfernt
+    \end{itemize}
+
+\end{document}

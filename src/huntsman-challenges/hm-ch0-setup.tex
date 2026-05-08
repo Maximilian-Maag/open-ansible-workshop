@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Huntsman Challenge 0: Einrichten der Ansible Verwaltungsumgebung} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    Die Challenge richtet sich an die Huntsman Fraktion. Aufgabe ist das Einrichten einer zentralen Verwaltungsumgebung für Ansible.
+    Sie werden die zentrale Kontrollinstanz sein, die alle von den Rabbits deployten Server verwaltet.
+    \\ \\
+    Das Ziel dieser Challenge ist es, eine robuste und sichere Ansible-Umgebung aufzubauen, von der aus Sie alle Server Ihres Rabbit-Konkurrenten managen können.
+
+    \section{Aufgaben}
+
+    \subsection{Aufgabe 1}
+    Erstellen Sie ein SSH Schlüsselpaar auf Ihrem lokalen Notebook.
+
+    \subsection{Aufgabe 2}
+    Deployen Sie mittels Terraform eine VM, die als Ansible Control Node fungiert.
+    Ihre VM muss folgende Eigenschaften besitzen:
+    \begin{itemize}
+        \item Ubuntu 22.04
+        \item 2 vCPUs
+        \item 4 GB RAM
+        \item 20 GB Festplatte
+        \item Port 22 offen
+        \item Ihr SSH Public Key im authorized\_keys File
+    \end{itemize}
+
+    \subsection{Aufgabe 3}
+    Installieren Sie auf der Control Node VM Ansible und alle benötigten Abhängigkeiten.
+    \\ \\
+    \textbf{Hinweis:} Sie können diese Installation auch lokal auf Ihrem Notebook durchführen, falls Sie das bevorzugen.
+
+    \subsection{Aufgabe 4}
+    Erstellen Sie auf Ihrem lokalen Notebook oder der Control Node eine Basis-Verzeichnisstruktur für Ansible Projekte:
+    \begin{itemize}
+        \item \texttt{inventory/} - für Hostgruppen und Variablen
+        \item \texttt{playbooks/} - für Ihre Playbooks
+        \item \texttt{roles/} - für wiederverwendbare Rollen
+        \item \texttt{group\_vars/} - für Gruppenvariablen
+        \item \texttt{host\_vars/} - für Host-spezifische Variablen
+    \end{itemize}
+
+    \subsection{Aufgabe 5}
+    Erstellen Sie ein erstes Testinventar mit mindestens 3 Hosts.
+    Diese Hosts können vorerst nur auf dem Papier existieren und müssen keine echten Maschinen sein.
+    Organisieren Sie diese Hosts in logischen Gruppen (z.B. webserver, databases, monitoring).
+
+    \subsection{Aufgabe 6}
+    Generieren Sie auf der Ansible Control Node ein zusätzliches SSH Schlüsselpaar.
+    Der Public Key dieses Schlüsselpaares wird später an Ihren Rabbit-Konkurrenten übergeben, damit dieser ihn in die authorized\_keys seiner VMs eintragen kann.
+    \\ \\
+    \textbf{Wichtig:} Speichern Sie den Private Key sicher. Sie werden diesen Key benötigen, um auf alle vom Rabbit deployten Server zuzugreifen.
+    Es ist unter keinen Umständen erlaubt, den Private Key mit anderen zu teilen oder öffentlich zugänglich zu machen.
+    Er darf die Maschine auf dem er generiert wurde nicht verlassen.
+
+\end{document}
