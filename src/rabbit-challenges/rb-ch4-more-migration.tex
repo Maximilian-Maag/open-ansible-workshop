@@ -1,0 +1,52 @@
+\documentclass{article}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Rabbit Challenge 4: Migration} \\ [6pt]
+        \normalsize
+        Autor: Maximilian Jakob Maag B.Sc. \\
+        Version: 1.0
+    \end{center}
+
+    \section{Intro}
+    Diese Challenge stellt eine Sammlung von Real-World-Problems dar.
+    Versuchen Sie die einzelnen Szenarien so gut Sie können zu lösen.
+    Es gibt nicht immer die eine richtige Lösung, sondern es geht darum, dass Sie sich mit  den Herausforderungen auseinandersetzen und eine Lösung erarbeiten, die die Anforderungen erfüllt.
+    Möglicherweise müssen Sie Ansible mit anderen Tools kombinieren.
+
+    \section{Aufgaben}
+    Ziel der Übung ist das Erstellen eines Playbooks.
+    Je Szenario ist ein Playbook zu erstellen.
+
+    \subsection{Aufgabe 1}
+    Ihre Firma möchte eine neue Applikation in der Cloud betreiben.
+    Die Applikation besteht aus einem Frontend, einem Backend und einer Datenbank.
+    Alle Komponenten der Applikation müssen in der Cloud betrieben werden.
+    Erstellen Sie ein Playbook, dass die Applikation in der Cloud deployt. 
+    Als Beispiel können Sie von einer Nextcloud ausgehen.
+
+    \subsection{Aufgabe 2}
+    Nach einem IT Security Audit stellt sich heraus, dass die Applikation nicht sicher genug ist.
+    Es müssen Maßnahmen ergriffen werden, um die Applikation sicherer zu machen.
+    Entwerfen Sie für eine Flotte von 100 bis 500 VMs eine Monitoring Lösung.
+
+    \subsection{Aufgabe 3}
+    Die Geschäftsleitung ist von KI begeistert und möchte KI in der Applikation einsetzen.
+    Es soll eine KI Komponente in die Applikation integriert werden, die die Nutzererfahrung verbessert.
+    Erstellen Sie ein Playbook, dass ein KI Modell deployt und mittels einer API Schnittstelle in die Applikation integriert.
+
+    \subsection{Aufgabe 4}
+    Die KI Blase ist geplatzt und die Geschäftsleitung möchte die KI Komponente wieder entfernen.
+    Erstellen Sie ein Playbook, dass die KI Komponente wieder entfernt. Die Applikation darf nicht abstürzen.
+    Sie müssen davon ausgehen, dass die Applikation auch weiterhin versuchen wird die KI API aufzurufen.
+
+    \subsection{Aufgabe 5}
+    Im Folgenden dient Ihr Nextcloud Playbook als Beispielapplikation.
+    Die Nextcloud soll von der Cloud in ein On-Premise Rechenzentrum migriert werden.
+    Erstellen Sie ein Playbook, dass die Nextcloud in einem On-Premise Rechenzentrum wiederherstellt.
+    Darüber hinaus muss die Nextcloud unter der selben URL erreichbar bleiben.
+    \\ \\
+    Sie dürfen davon ausgehen, dass in einer on Prem Umgebung die VM hinter mehreren Firewalls liegt.
+    Die Applikation selbst liegt in einer DMZ, während die Datenbank in einem internen Netzwerkzone liegt.
+
+\end{document}
